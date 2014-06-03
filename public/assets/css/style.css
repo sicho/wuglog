@@ -1,0 +1,42 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.carousel {
+    height: 500px;
+}
+.carousel-caption {
+    z-index: 10;
+}
+.carousel .item {
+    height: 500px;
+    background-color: #777;
+}
+.carousel-inner > .item > img {
+    position: relative;
+    top: -90px;
+    margin: 0 auto;
+}
+
+.item-image {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.item-have {
+    width: 110px;
+    height: 110px;
+    font-size: 100px;
+    color: #e4007f;
+    filter: alpha(opacity=85);
+    -moz-opacity: 0.85;
+    opacity: 0.85;
+}
+.item-link {
+}
+.item-release {
+}

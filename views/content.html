@@ -1,0 +1,44 @@
+        % rebase('base.html')
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                % for i in range(7):
+                <li data-target="#myCarousel" data-slide-to="{{i}}" class="{{'active' if i == 0 else ''}}"></li>
+                % end
+            </ol>
+            <div class="carousel-inner">
+                % for i in range(7):
+                <div class="item {{'active' if i == 0 else ''}}">
+                    <img src="http://wakeupgirls.jp/img/character/character0{{i + 1}}_a.jpg">
+                    <div class="container">
+                        <div class="carousel-caption"></div>
+                    </div>
+                </div>
+                % end
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+
+        <div class="container">
+            % for key in data:
+            <div id="{{key}}" class="page-header">
+                <h1>{{key}}</h1>
+            </div>
+            <div class="row">
+                % for item in data[key] if data[key] is not None else {}:
+                <div class="col-md-3">
+                    <div class="img-thumbnail">
+                        <div class="item-image" style="background-image: url({{item['image']}})">
+                            % if item['have']:
+                            <span class="glyphicon glyphicon-ok item-have"></span>
+                            % end
+                        </div>
+                    </div>
+                    <p class="item-link"><a href="{{item['link']}}">{{item['title']}}</a></p>
+                    <p class="item-release">release:<time>{{item['release']}}</time></p>
+                </div>
+                % end
+            </div>
+            % end
+        </div>
