@@ -19,6 +19,13 @@ body {
     margin: 0 auto;
 }
 
+#have-show > span {
+    background-color: #5cb85c;
+}
+#not-have-show > span {
+    background-color: #f0ad4e;
+}
+
 .item-image {
     width: 200px;
     height: 200px;

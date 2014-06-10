@@ -11,9 +11,22 @@ wuglog = app.models.wuglog.WugLog()
 
 @route('/wuglog')
 def index():
-    return template('content', data={
-        'video': wuglog.video(True),
-        'music': wuglog.music(True),
-        'book': wuglog.book(True),
-        'other': wuglog.other(True),
-        })
+    video = wuglog.video(True)
+    music = wuglog.music(True)
+    book = wuglog.book(True)
+    other = wuglog.other(True)
+
+    data = {
+            'video': video,
+            'music': music,
+            'book': book,
+            'other': other,
+            }
+
+    total = len(video + music + book + other)
+    have = len([item for item in video if item['have']]) \
+            + len([item for item in music if item['have']]) \
+            + len([item for item in book if item['have']]) \
+            + len([item for item in other if item['have']])
+
+    return template('content', data = data, total = total, have = have)

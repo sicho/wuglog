@@ -1,4 +1,4 @@
-        % rebase('base.html')
+        % rebase('base.html', total = total, have= have)
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -28,15 +28,17 @@
             <div class="row">
                 % for item in data[key] if data[key] is not None else {}:
                 <div class="col-md-3">
-                    <div class="img-thumbnail">
-                        <div class="item-image" style="background-image: url({{item['image']}})">
-                            % if item['have']:
-                            <span class="glyphicon glyphicon-ok item-have"></span>
-                            % end
+                    <div class="{{'have' if item['have'] else 'not-have'}}">
+                        <div class="img-thumbnail">
+                            <div class="item-image" style="background-image: url({{item['image']}})">
+                                % if item['have']:
+                                <span class="glyphicon glyphicon-ok item-have"></span>
+                                % end
+                            </div>
                         </div>
+                        <p class="item-link"><a href="{{item['link']}}">{{item['title']}}</a></p>
+                        <p class="item-release">release:<time>{{item['release']}}</time></p>
                     </div>
-                    <p class="item-link"><a href="{{item['link']}}">{{item['title']}}</a></p>
-                    <p class="item-release">release:<time>{{item['release']}}</time></p>
                 </div>
                 % end
             </div>
