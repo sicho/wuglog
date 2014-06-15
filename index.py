@@ -5,7 +5,7 @@ import sys
 from bottle import route, static_file, default_app
 from app.controllers import *
 
-@route('/public/<filepath:path>')
+@route('/wuglog/public/<filepath:path>', name='static_file')
 def server_static(filepath):
     return static_file(filepath, root='./public')
 

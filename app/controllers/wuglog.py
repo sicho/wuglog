@@ -2,9 +2,8 @@
 
 import sys
 import yaml
-sys.path.append('vendor/bottle');
 
-from bottle import route, template
+from bottle import route, template, url
 
 import app.models.wuglog
 wuglog = app.models.wuglog.WugLog()
@@ -29,4 +28,4 @@ def index():
             + len([item for item in book if item['have']]) \
             + len([item for item in other if item['have']])
 
-    return template('content', data = data, total = total, have = have)
+    return template('content', url = url, data = data, total = total, have = have)
