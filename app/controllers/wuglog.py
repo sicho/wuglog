@@ -9,6 +9,7 @@ import app.models.wuglog
 wuglog = app.models.wuglog.WugLog()
 
 @route('/wuglog')
+@route('/wuglog/')
 def index():
     video = wuglog.video(True)
     music = wuglog.music(True)
